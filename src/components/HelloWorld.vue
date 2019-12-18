@@ -1,11 +1,11 @@
 <template>
     <div class="hello">
-        <h1>{{ msg }}</h1>
+        <h1> Task manager</h1>
         <center>
             <div class="column" id="col1">
                 <h1>To do</h1>
                 <input type="text" class="input" v-model="firstInput" @keypress.enter="addTask">
-                <button @click="addTask" @mousedown="addClass" @mouseup="deleteClass" id="buttonAdd">Add</button>
+                <button @click="addTask" id="buttonAdd">Add</button>
                 <div class="task" v-for="task in this.$store.getters.firstCol" :key="task.id">
                     <h2 @click="changeBodyFirst(task)">{{ task.body }}</h2>
                     <div class="delete" @click="deleteTask(task.id)">X</div>
@@ -36,9 +36,6 @@
 <script>
     export default {
         name: 'HelloWorld',
-        props: {
-            msg: String
-        },
         data() {
             return {
                 firstInput: '',
@@ -88,12 +85,6 @@
             changeBodyFird(t) {
                 t.body = prompt('Change', t.body);
                 this.$store.commit('changeBody', t)
-            },
-            addClass() {
-                document.getElementById('buttonAdd').classList.add('clicking');
-            },
-            deleteClass() {
-                document.getElementById('buttonAdd').classList.remove('clicking');
             }
         }
     }
@@ -148,9 +139,6 @@
     }
     button:hover {
         background: #e4e4e4;
-    }
-    .clicking {
-        background: #c1c1c1 !important;
     }
     .task {
         color: white;

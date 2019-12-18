@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <HelloWorld msg="Task manager"/>
+        <HelloWorld/>
     </div>
 </template>
 
